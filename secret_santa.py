@@ -25,6 +25,7 @@ def santas_pairings(name_list: List[str], santa_index: int = 0, chosen: List[int
     chosen_pairing = select_pair(name_list, santas_choices, santa)
     pairings.append(chosen_pairing)
     chosen.append(name_list.index(chosen_pairing[1]))
+    # Recursive function call
     santas_pairings(name_list, santa_index + 1, chosen, pairings)
     return pairings
 
@@ -34,6 +35,7 @@ def display_santas_choices(pairing_list: List[str], index: int = 0, price_limit:
         return "complete"
     current_pair = pairing_list[index]
     print(f"{current_pair[0]} will now be Santa for...{current_pair[1]}!")
+    # Recursive function call
     display_santas_choices(pairing_list, index + 1)
     if index == 0:
         print(f"\nDon't forget about the ${price_limit} limit!")
